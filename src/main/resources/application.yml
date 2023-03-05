@@ -10,4 +10,4 @@ spring:
         password: nnpia
     jpa:
         hibernate:
-            ddl_auto: update
+            ddl_auto: validate
