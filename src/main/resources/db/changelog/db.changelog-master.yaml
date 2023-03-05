@@ -28,3 +28,233 @@ databaseChangeLog:
               - column:
                   name: update_date
                   type: timestamp
+
+        - createTable:
+            tableName: role
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+
+        - createTable:
+            tableName: task
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: creation_date
+                  type: timestamp
+              - column:
+                  name: description
+                  type: varchar(255)
+              - column:
+                  name: title
+                  type: varchar(255)
+              - column:
+                  name: update_date
+                  type: timestamp
+              - column:
+                  name: id_author
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_author
+                    references: app_user(id)
+
+        - createTable:
+            tableName: app_user_role
+            columns:
+              - column:
+                  name: app_user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_app_user
+                    references: app_user(id)
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: role_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_role
+                    references: role(id)
+                    primaryKey: true
+                    nullable: false
+
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: name
+                  value: "vedouci"
+
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: name
+                  value: "zamestnanec"
+
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: name
+                  value: "ostatni"
+
+        - insert:
+            tableName: app_user
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: username
+                  value: "jan"
+              - column:
+                  name: password
+                  value: "123"
+              - column:
+                  name: active
+                  value: "False"
+              - column:
+                  name: creation_date
+                  value: "now()"
+              - column:
+                  name: update_date
+                  value: "now()"
+        - insert:
+            tableName: app_user
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: username
+                  value: "adam"
+              - column:
+                  name: password
+                  value: "123"
+              - column:
+                  name: active
+                  value: "True"
+              - column:
+                  name: creation_date
+                  value: "now()"
+              - column:
+                  name: update_date
+                  value: "now()"
+        - insert:
+            tableName: app_user
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: username
+                  value: "david"
+              - column:
+                  name: password
+                  value: "123"
+              - column:
+                  name: active
+                  value: "True"
+              - column:
+                  name: creation_date
+                  value: "now()"
+              - column:
+                  name: update_date
+                  value: "now()"
+
+        - insert:
+            tableName: task
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: creation_date
+                  value: "now()"
+              - column:
+                  name: description
+                  value: "This is task 1"
+              - column:
+                  name: title
+                  value: "Task_1"
+              - column:
+                  name: update_date
+                  value: "now()"
+              - column:
+                  name: id_author
+                  value: 1
+        - insert:
+            tableName: task
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: creation_date
+                  value: "now()"
+              - column:
+                  name: description
+                  value: "This is task 2"
+              - column:
+                  name: title
+                  value: "Task_2"
+              - column:
+                  name: update_date
+                  value: "now()"
+              - column:
+                  name: id_author
+                  value: 2
+
+        - insert:
+            tableName: app_user_role
+            columns:
+              - column:
+                  name: app_user_id
+                  value: 1
+              - column:
+                  name: role_id
+                  value: 1
+
+        - insert:
+            tableName: app_user_role
+            columns:
+              - column:
+                  name: app_user_id
+                  value: 2
+              - column:
+                  name: role_id
+                  value: 2
+
+        - insert:
+            tableName: app_user_role
+            columns:
+              - column:
+                  name: app_user_id
+                  value: 3
+              - column:
+                  name: role_id
+                  value: 3
