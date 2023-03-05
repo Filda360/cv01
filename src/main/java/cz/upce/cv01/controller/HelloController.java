@@ -1,4 +1,4 @@
-package cz.upce.cv01;
+package cz.upce.cv01.controller;
 
 //?1)
 //@Controller - vraci HTTP response
