@@ -28,4 +28,3 @@ databaseChangeLog:
               - column:
                   name: update_date
                   type: timestamp
-
