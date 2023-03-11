@@ -1,11 +1,10 @@
 package cz.upce.cv01.domain;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -15,7 +14,6 @@ import java.util.Set;
 //create-drop -> drop schema at the end of session
 
 @Data
-@NoArgsConstructor
 @Entity
 @Getter
 @Setter
@@ -103,6 +101,24 @@ public class AppUser {
     }
 
     public void setUpdateDate(LocalDateTime updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public AppUser(String username, String password, Boolean active) {
+        this.username = username;
+        this.password = password;
+        this.active = active;
+    }
+
+    public AppUser() {
+    }
+
+    public AppUser(Long id, String username, String password, Boolean active, LocalDateTime creationDate, LocalDateTime updateDate) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.active = active;
+        this.creationDate = creationDate;
         this.updateDate = updateDate;
     }
 }
