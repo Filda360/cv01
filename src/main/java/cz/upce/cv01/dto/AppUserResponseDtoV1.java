@@ -10,19 +10,27 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AppUserDto {
+public class AppUserResponseDtoV1 {
     private String username;
     private String password;
     private Boolean active;
     private LocalDateTime creationDate;
     private LocalDateTime updateDate;
 
-    public AppUserDto(AppUser appUser) {
+    public AppUserResponseDtoV1(AppUser appUser) {
         this.username = appUser.getUsername();
         this.password = appUser.getPassword();
         this.active = appUser.getActive();
         this.creationDate = appUser.getCreationDate();
         this.updateDate = appUser.getUpdateDate();
+    }
+
+    public AppUserResponseDtoV1(String username, String password, Boolean active, LocalDateTime creationDate, LocalDateTime updateDate) {
+        this.username = username;
+        this.password = password;
+        this.active = active;
+        this.creationDate = creationDate;
+        this.updateDate = updateDate;
     }
 
     public String getUsername() {

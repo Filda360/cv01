@@ -1,14 +1,9 @@
 package cz.upce.cv01.controller;
 
 import cz.upce.cv01.domain.AppUser;
-import cz.upce.cv01.dto.AppUserDto;
 import cz.upce.cv01.repository.AppUserRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;

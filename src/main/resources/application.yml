@@ -11,3 +11,8 @@ spring:
     jpa:
         hibernate:
             ddl_auto: validate
+    graphql:
+        graphiql:
+            enabled: true
+            path: /graphiql
+        path: /graphql

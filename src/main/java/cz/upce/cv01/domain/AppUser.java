@@ -1,5 +1,6 @@
 package cz.upce.cv01.domain;
 
+import cz.upce.cv01.dto.AppUserResponseDtoV1;
 import lombok.*;
 
 import javax.persistence.*;
@@ -120,5 +121,15 @@ public class AppUser {
         this.active = active;
         this.creationDate = creationDate;
         this.updateDate = updateDate;
+    }
+
+    public AppUserResponseDtoV1 toDto(){
+        return new AppUserResponseDtoV1(
+                getUsername(),
+                getPassword(),
+                getActive(),
+                getCreationDate(),
+                getUpdateDate()
+        );
     }
 }

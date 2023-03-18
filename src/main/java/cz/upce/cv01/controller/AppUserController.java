@@ -1,8 +1,8 @@
 package cz.upce.cv01.controller;
 
 import cz.upce.cv01.domain.AppUser;
-import cz.upce.cv01.dto.AppUserDto;
-import cz.upce.cv01.dto.AppUserInputDto;
+import cz.upce.cv01.dto.AppUserResponseDtoV1;
+import cz.upce.cv01.dto.AppUserResponseInputDtoV1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,13 +43,13 @@ public class AppUserController {
     }
 
     @PostMapping("/new")
-    public ResponseEntity create(@Valid @RequestBody AppUserInputDto dto){
+    public ResponseEntity create(@Valid @RequestBody AppUserResponseInputDtoV1 dto){
         var result = appuserService.create(toEntity(dto));
         return ResponseEntity.status(HttpStatus.CREATED).body(toDto(result));
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity replaceEmployee(@RequestBody AppUserInputDto newAppUser, @PathVariable Long id) {
+    public ResponseEntity replaceEmployee(@RequestBody AppUserResponseInputDtoV1 newAppUser, @PathVariable Long id) {
         var result = appuserService.updateUser(id, toEntity(newAppUser));
         return ResponseEntity.status(HttpStatus.OK).body(toDto(result));
     }
@@ -60,11 +60,11 @@ public class AppUserController {
     }
 
 
-    private static AppUserDto toDto(final AppUser appUser) {
-        return new AppUserDto(appUser);
+    private static AppUserResponseDtoV1 toDto(final AppUser appUser) {
+        return new AppUserResponseDtoV1(appUser);
     }
 
-    private static AppUser toEntity(final AppUserInputDto dto){
+    private static AppUser toEntity(final AppUserResponseInputDtoV1 dto){
         return new AppUser(dto.getUsername(), dto.getPassword(), dto.getActive());
     }
 
