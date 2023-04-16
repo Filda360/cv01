@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class AppUserResponseDtoV1 {
     private String username;
     private String password;
